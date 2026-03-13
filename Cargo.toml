@@ -1,6 +1,12 @@
 [package]
-name = "solver_sistemas_lineares"
+name = "gauss_solver_3x3" # Escolha um nome único, verifique se já não existe no crates.io
 version = "0.1.0"
 edition = "2024"
+authors = ["Seu Nome <seu.email@exemplo.com>"]
+description = "Um solver determinístico e sem alocação em heap para sistemas lineares 3x3 usando Eliminação de Gauss."
+license = "MIT OR Apache-2.0" # Licença padrão da comunidade Rust
+repository = "https://github.com/strngrthnall/gauss-solver-rs" # O link real do seu repositório
+keywords = ["math", "linear-algebra", "gauss", "matrix", "no_std"]
+categories = ["mathematics", "science"]
 
 [dependencies]
