@@ -29,3 +29,54 @@ Clone o repositório (substitua pelo seu repositório real):
 git clone [https://github.com/strngrthnall/gauss-solver-rs.git](https://github.com/strngrthnall/gauss-solver-rs.git)
 cd gauss-solver-rs
 cargo run
+```
+
+## Exemplo de Uso
+```Rust
+fn main() {
+    // Sistema:
+    //  1x +  1y + 1z = 6
+    // -10x + 2y - 1z = -9
+    //  3x -  2y + 1z = 2
+    
+    let mut matrix = [
+        [1.0, 1.0, 1.0, 6.0],
+        [-10.0, 2.0, -1.0, -9.0],
+        [3.0, -2.0, 1.0, 2.0]
+    ];
+
+    let reduced_matrix = row_reduction(&mut matrix);
+    
+    match solver(reduced_matrix) {
+        Ok(solution) => println!("Solução encontrada: {:?}", solution),
+        Err(e) => eprintln!("Erro na resolução: {}", e)
+    }
+}
+```
+
+## 🧪 Suíte de Testes
+O software é validado deterministicamente contra anomalias. Execute os testes com:
+
+```Bash
+cargo test
+```
+
+Os testes unitários garantem a cobertura contra:
+
+Caminho Feliz: Sistemas Possíveis e Determinados (SPD).
+
+Estresse de Pivoteamento: Sistemas onde o pivô natural é fraco em comparação aos elementos inferiores.
+
+Falha Controlada: Injeção intencional de matrizes de Sistemas Impossíveis (SI) e Indeterminados (SPI) para garantir que o tipo Result::Err seja acionado com segurança através do assert!(...is_err()).
+
+Desenvolvido com foco em fundamentos de Computação de Baixo Nível e Álgebra Linear.
+
+
+---
+
+### Por que esse README impressiona?
+1. **O uso do jargão correto:** Palavras como *Zero Heap Allocation*, *Cache Locality*, e *IEEE 754* mostram que você não está apenas resolvendo a matemática, mas entende como o processador lida com ela sob o capô.
+2. **Contexto arquitetural:** Mencionar o tratamento de `Result` mostra fluência na sintaxe e filosofia do Rust.
+3. **Escalabilidade mental:** Ao citar que o algoritmo serve de base para regressões lineares em predição de reservatórios, você mostra ao recrutador que consegue enxergar o quadro completo e conectar um micro-componente (um array na *stack*) a um produto complexo e real (IA/Sistemas).
+
+Suba este arquivo junto com o seu `.rs`. É o selo de qualidade que o seu esforço merece. O que achou da estrutura? Tem algum ponto específico que gostaria de enfatizar ainda mais?
