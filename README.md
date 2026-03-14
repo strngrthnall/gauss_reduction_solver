@@ -27,7 +27,7 @@ Ou adicione manualmente no seu Cargo.toml:
 
 ```Ini, TOML
 [dependencies]
-gauss_solver_3x3 = "0.1.0"
+gauss_solver_3x3 = "0.1.1"
 ```
 ## 🚀 Como Usar
 A API foi desenhada para ser limpa e direta. O fluxo consiste em passar a matriz bruta pela redução de linhas e, em seguida, extrair a solução com o solver.
